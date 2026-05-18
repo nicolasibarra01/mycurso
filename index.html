@@ -12,7 +12,8 @@
             font-family: 'Outfit', sans-serif;
             scroll-behavior: smooth;
         }
-        .bg-soft { background-color: #f8fafc; }
+        .bg-soft { background-color: #f0f4f8; }
+        .bg-cream { background-color: #fdfbf7; }
         .text-accent { color: #1e40af; }
         .btn-primary {
             background-color: #1e40af;
@@ -22,147 +23,355 @@
             background-color: #1e3a8a;
             transform: translateY(-2px);
         }
+        .btn-secondary {
+            background-color: #10b981;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #059669;
+            transform: translateY(-2px);
+        }
         .form-input {
-            border: 2px solid #e2e8f0;
+            border: 3px solid #cbd5e1;
             transition: border-color 0.3s;
         }
         .form-input:focus {
             border-color: #1e40af;
             outline: none;
         }
+        /* Transiciones suaves entre pantallas */
+        .screen-transition {
+            transition: opacity 0.3s ease-in-out;
+        }
     </style>
 </head>
-<body class="bg-soft text-gray-800">
+<body class="bg-soft text-gray-800 min-h-screen flex flex-col justify-between">
 
-    <!-- Header / Navbar -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <!-- NAVBAR GLOBAL -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <i class="fa-solid fa-mobile-screen-button text-2xl text-blue-700"></i>
-                <span class="font-bold text-xl tracking-tight">ConectaMayor</span>
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="showScreen('screen-landing')">
+                <div class="bg-blue-100 p-2 rounded-xl text-blue-700">
+                    <i class="fa-solid fa-mobile-screen-button text-2xl"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-xl tracking-tight block leading-none text-blue-900">ConectaMayor</span>
+                    <span class="text-xs text-gray-500 font-semibold">Tecnología a tu ritmo</span>
+                </div>
             </div>
-            <a href="#registro" class="hidden md:block bg-blue-100 text-blue-700 px-4 py-2 rounded-full font-semibold">Inscripción Gratuita</a>
+            <div class="flex items-center space-x-3">
+                <button onclick="showScreen('screen-login')" id="navLoginBtn" class="bg-blue-50 hover:bg-blue-100 text-blue-700 px-5 py-2.5 rounded-xl font-bold border-2 border-blue-200 text-sm sm:text-base">
+                    <i class="fa-solid fa-right-to-bracket mr-2"></i>Iniciar Curso
+                </button>
+                <a href="#registro" id="navRegisterBtn" class="hidden md:inline-block bg-blue-700 hover:bg-blue-800 text-white px-5 py-2.5 rounded-xl font-bold text-sm">
+                    Inscripción Gratis
+                </a>
+            </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="relative bg-white overflow-hidden">
-        <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center">
-            <div class="md:w-1/2 mb-12 md:mb-0">
-                <span class="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mb-6">SEMINARIO 100% GRATUITO</span>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                    Mejora tu experiencia con tu Android <span class="text-blue-700">sin miedo al éxito.</span>
-                </h1>
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
-                    ¿Sientes que el teléfono te domina a ti? Únete a nuestro seminario diseñado especialmente para personas que desean aprender paso a paso, con paciencia y sin complicaciones.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <a href="#registro" class="btn-primary text-white px-8 py-4 rounded-xl text-lg font-bold text-center">Quiero inscribirme ahora</a>
-                    <div class="flex items-center space-x-2 px-4 py-2">
+    <!-- PANTALLA 1: LANDING & REGISTRO -->
+    <div id="screen-landing" class="screen-transition flex-grow">
+        <!-- Hero Section -->
+        <header class="relative bg-white overflow-hidden border-b border-gray-100">
+            <div class="max-w-6xl mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 pr-0 md:pr-8">
+                    <span class="inline-block px-4 py-1.5 bg-emerald-100 text-emerald-800 rounded-full text-xs sm:text-sm font-bold mb-6">
+                        <i class="fa-solid fa-gift mr-1.5"></i>SEMINARIO 100% GRATUITO
+                    </span>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-900">
+                        Mejora tu experiencia con tu Android <span class="text-blue-700">sin miedo al éxito.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+                        ¿Sientes que el teléfono te domina a ti? Únete a nuestro seminario web diseñado con paciencia infinita, explicaciones paso a paso y sin términos confusos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#registro" class="btn-primary text-white px-8 py-4 rounded-2xl text-lg font-bold text-center shadow-lg shadow-blue-200">
+                            <i class="fa-solid fa-user-plus mr-2"></i>Inscribirme ahora
+                        </a>
+                        <button onclick="showScreen('screen-login')" class="bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border-2 border-emerald-200 px-8 py-4 rounded-2xl text-lg font-bold text-center flex items-center justify-center">
+                            <i class="fa-solid fa-circle-play text-emerald-600 mr-2 text-xl"></i>Ya me inscribí, ir al curso
+                        </button>
+                    </div>
+                    <div class="mt-8 flex items-center space-x-3 text-sm text-gray-500">
                         <div class="flex -space-x-2">
-                            <div class="w-10 h-10 rounded-full bg-blue-200 border-2 border-white flex items-center justify-center text-xs">👵</div>
-                            <div class="w-10 h-10 rounded-full bg-green-200 border-2 border-white flex items-center justify-center text-xs">👴</div>
+                            <div class="w-10 h-10 rounded-full bg-blue-200 border-2 border-white flex items-center justify-center text-lg">👵</div>
+                            <div class="w-10 h-10 rounded-full bg-emerald-200 border-2 border-white flex items-center justify-center text-lg">👴</div>
                         </div>
-                        <span class="text-sm text-gray-500 font-medium">+500 personas ya se unieron</span>
+                        <span class="font-medium">Más de 500 personas mayores ya participan. ¡Tú también puedes!</span>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-full -z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1516307361476-e7a050afe1bb?auto=format&fit=crop&q=80&w=800" alt="Persona mayor sonriendo con un teléfono inteligente" class="rounded-3xl shadow-2xl w-full object-cover h-[350px] md:h-[450px]">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-5 rounded-2xl shadow-xl border border-blue-50 hidden sm:block">
+                            <div class="flex items-center space-x-3">
+                                <div class="bg-emerald-100 p-3 rounded-xl">
+                                    <i class="fa-solid fa-heart text-emerald-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-900 text-sm">Paciencia Garantizada</p>
+                                    <p class="text-xs text-gray-500">Explicamos todo con calma</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="md:w-1/2 flex justify-center">
-                <div class="relative">
-                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-full -z-10"></div>
-                    <!--<img src="https://images.unsplash.com/photo-1516307361476-e7a050afe1bb?auto=format&fit=crop&q=80&w=800" alt="Persona mayor usando smartphone" class="rounded-3xl shadow-2xl w-full max-w-md object-cover h-[450px]"-->
-					<!--<img src="C:\xampp\htdocs\prueba_firebase\1.png?auto=format&fit=crop&q=80&w=800" alt="Persona mayor usando smartphone" class="rounded-3xl shadow-2xl w-full max-w-md object-cover h-[450px]">--->
-                    <img src="1.jpg?auto=format&fit=crop&q=80&w=800" alt="Persona mayor usando smartphone" class="rounded-3xl shadow-2xl w-full max-w-md object-cover h-[450px]">
-                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl border border-gray-100 hidden sm:block">
-                        <div class="flex items-center space-x-3">
-                            <div class="bg-green-100 p-2 rounded-lg">
-                                <i class="fa-solid fa-check text-green-600"></i>
+        </header>
+
+        <!-- Beneficios -->
+        <section class="py-16 bg-cream border-b border-gray-100">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">¿Por qué este seminario es diferente?</h2>
+                    <p class="text-gray-600 text-lg">Sabemos lo frustrante que puede ser la tecnología. Por eso hemos diseñado un método pensado especialmente para ti.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-orange-100">
+                        <div class="bg-orange-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-face-smile text-2xl text-orange-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Cero vergüenza</h3>
+                        <p class="text-gray-600">Aquí ninguna pregunta es tonta. Estamos para aprender de forma agradable y divertida.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-blue-100">
+                        <div class="bg-blue-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-hand-pointer text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Pantallas Amigables</h3>
+                        <p class="text-gray-600">Aprenderás a acomodar las letras del celular para leer con total comodidad y sin forzar la vista.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-emerald-100">
+                        <div class="bg-emerald-100 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-lock-open text-2xl text-emerald-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Seguridad Total</h3>
+                        <p class="text-gray-600">Conoce los secretos para evitar estafas y navegar por internet con absoluta tranquilidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulario de Registro -->
+        <section id="registro" class="py-16 bg-white">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="bg-blue-50 rounded-3xl p-8 md:p-12 border-2 border-blue-100 shadow-xl">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl font-bold text-blue-900 mb-4">Inscripción al Seminario Gratis</h2>
+                        <p class="text-gray-600 text-lg">Llena esta pequeña tarjeta con tus datos. ¡Te tomará menos de un minuto!</p>
+                    </div>
+
+                    <form id="registrationForm" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-base font-bold text-gray-700 mb-2">
+                                    <i class="fa-solid fa-user text-blue-600 mr-2"></i>Nombre Completo
+                                </label>
+                                <input type="text" id="nombre" required placeholder="Ej: Carmen Gómez" class="w-full p-4 rounded-xl form-input bg-white text-lg">
                             </div>
                             <div>
-                                <p class="font-bold text-sm">Paso a paso</p>
-                                <p class="text-xs text-gray-500">Explicado de forma sencilla</p>
+                                <label class="block text-base font-bold text-gray-700 mb-2">
+                                    <i class="fa-solid fa-envelope text-blue-600 mr-2"></i>Correo Electrónico
+                                </label>
+                                <input type="email" id="email" required placeholder="carmen@correo.com" class="w-full p-4 rounded-xl form-input bg-white text-lg">
                             </div>
                         </div>
-                    </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-base font-bold text-gray-700 mb-2">
+                                    <i class="fa-solid fa-phone text-blue-600 mr-2"></i>No. Teléfono Móvil
+                                </label>
+                                <input type="tel" id="telefono" required placeholder="Ej: 55 1234 5678" class="w-full p-4 rounded-xl form-input bg-white text-lg">
+                            </div>
+                            <div>
+                                <label class="block text-base font-bold text-gray-700 mb-2">
+                                    <i class="fa-solid fa-briefcase text-blue-600 mr-2"></i>¿A qué te dedicas o dedicabas?
+                                </label>
+                                <input type="text" id="labor" required placeholder="Ej: Jubilada, Ama de casa, Profesor..." class="w-full p-4 rounded-xl form-input bg-white text-lg">
+                            </div>
+                        </div>
+
+                        <div id="statusMessage" class="hidden p-4 rounded-xl text-center font-bold text-lg"></div>
+
+                        <button type="submit" id="submitBtn" class="w-full btn-primary text-white py-5 rounded-2xl text-xl font-bold shadow-lg flex items-center justify-center space-x-2">
+                            <span>¡Sí, quiero registrarme gratis!</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <p class="text-sm text-center text-gray-500 mt-4">
+                            <i class="fa-solid fa-shield-halved mr-2"></i>No compartimos tus datos. Tu privacidad es sagrada para nosotros.
+                        </p>
+                    </form>
                 </div>
             </div>
-        </div>
-    </header>
+        </section>
+    </div>
 
-    <!-- Beneficios -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-16">Lo que aprenderás con nosotros</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                    <i class="fa-solid fa-shield-halved text-4xl text-blue-600 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Pierde el miedo</h3>
-                    <p class="text-gray-600">Aprende que no puedes "romper" el teléfono por tocar un botón equivocado.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                    <i class="fa-solid fa-comments text-4xl text-blue-600 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Conéctate más</h3>
-                    <p class="text-gray-600">Domina las llamadas, mensajes y videollamadas con tus seres queridos.</p>
-                </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
-                    <i class="fa-solid fa-wand-magic-sparkles text-4xl text-blue-600 mb-6"></i>
-                    <h3 class="text-xl font-bold mb-4">Trucos Útiles</h3>
-                    <p class="text-gray-600">Configura el tamaño de letra, el brillo y la linterna de forma rápida.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Formulario de Registro -->
-    <section id="registro" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="bg-blue-50 rounded-3xl p-8 md:p-12 border border-blue-100 shadow-xl">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl font-bold mb-4">Asegura tu lugar hoy</h2>
-                    <p class="text-gray-600">Completa tus datos para recibir el enlace de acceso gratuito.</p>
-                </div>
-
-                <form id="registrationForm" class="space-y-6">
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Nombre Completo</label>
-                            <input type="text" id="nombre" required placeholder="Ej: Juan Pérez" class="w-full p-4 rounded-xl form-input bg-white">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Correo Electrónico</label>
-                            <input type="email" id="email" required placeholder="ejemplo@correo.com" class="w-full p-4 rounded-xl form-input bg-white">
-                        </div>
+    <!-- PANTALLA 2: LOGIN CON CORREO -->
+    <div id="screen-login" class="screen-transition hidden flex-grow py-12 bg-soft">
+        <div class="max-w-lg mx-auto px-6">
+            <div class="bg-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-xl">
+                <button onclick="showScreen('screen-landing')" class="text-gray-500 hover:text-gray-800 font-bold mb-6 flex items-center text-base">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Volver al inicio
+                </button>
+                <div class="text-center mb-8">
+                    <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-solid fa-door-open text-3xl text-blue-700"></i>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">No. Teléfono móvil</label>
-                            <input type="tel" id="telefono" required placeholder="+1 234 567 890" class="w-full p-4 rounded-xl form-input bg-white">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Labor / Dedicación</label>
-                            <input type="text" id="labor" required placeholder="Ej: Jubilado, Docente, Hogar..." class="w-full p-4 rounded-xl form-input bg-white">
-                        </div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2">Entrar a tu Curso</h2>
+                    <p class="text-gray-600 text-base">Escribe el correo electrónico con el que te registraste para ingresar al aula virtual de inmediato.</p>
+                </div>
+
+                <form id="loginForm" class="space-y-6">
+                    <div>
+                        <label class="block text-base font-bold text-gray-700 mb-2">
+                            <i class="fa-solid fa-envelope text-blue-600 mr-2"></i>Tu Correo Electrónico
+                        </label>
+                        <input type="email" id="loginEmail" required placeholder="ejemplo@correo.com" class="w-full p-4 rounded-xl form-input bg-white text-lg text-center">
                     </div>
 
-                    <div id="statusMessage" class="hidden p-4 rounded-xl text-center font-medium"></div>
+                    <div id="loginStatusMessage" class="hidden p-4 rounded-xl text-center font-bold"></div>
 
-                    <button type="submit" id="submitBtn" class="w-full btn-primary text-white py-5 rounded-xl text-xl font-bold shadow-lg flex items-center justify-center space-x-2">
-                        <span>¡Registrarme Gratis!</span>
-                        <i class="fa-solid fa-paper-plane"></i>
+                    <button type="submit" id="loginSubmitBtn" class="w-full btn-secondary text-white py-5 rounded-2xl text-xl font-bold shadow-lg flex items-center justify-center space-x-2">
+                        <span>Ingresar al curso ahora</span>
+                        <i class="fa-solid fa-right-to-bracket"></i>
                     </button>
-                    <p class="text-xs text-center text-gray-500 mt-4">Respetamos tu privacidad. Tus datos están seguros con nosotros.</p>
+                    
+                    <div class="text-center mt-6">
+                        <p class="text-gray-500 mb-2">¿Aún no te has inscrito?</p>
+                        <button type="button" onclick="showScreen('screen-landing'); setTimeout(() => document.getElementById('registro').scrollIntoView(), 100);" class="text-blue-700 hover:underline font-bold text-lg">
+                            Regístrate gratis aquí
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <!-- PANTALLA 3: BIENVENIDA AL CURSO (AULA VIRTUAL) -->
+    <div id="screen-classroom" class="screen-transition hidden flex-grow bg-cream py-12">
+        <div class="max-w-5xl mx-auto px-6">
+            <!-- Banner de Bienvenida -->
+            <div class="bg-gradient-to-r from-blue-700 to-blue-900 rounded-3xl p-8 md:p-12 text-white shadow-xl mb-12 relative overflow-hidden">
+                <div class="absolute right-0 bottom-0 opacity-10 text-[12rem] pointer-events-none font-bold">
+                    📱
+                </div>
+                <div class="relative z-10">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <span class="px-3 py-1 bg-blue-500 rounded-full text-xs font-bold tracking-wider">¡YA ESTÁS DENTRO!</span>
+                        <span class="text-sm">📍 Seminario Web Android</span>
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-bold mb-4">
+                        ¡Hola, <span id="userNamePlaceholder" class="text-emerald-300">Estudiante</span>!
+                    </h1>
+                    <p class="text-lg md:text-xl text-blue-100 max-w-2xl">
+                        Qué alegría tenerte aquí. Hoy daremos los primeros pasos para que te conviertas en un maestro de tu propio celular. Prepárate un té, ponte cómodo y comencemos.
+                    </p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <button onclick="logout()" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-5 py-2.5 rounded-xl font-bold text-sm">
+                            <i class="fa-solid fa-right-from-bracket mr-2"></i>Salir del Curso
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido del Curso -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Columna Temas del Aula -->
+                <div class="md:col-span-2 space-y-6">
+                    <h2 class="text-2xl font-bold text-gray-900 flex items-center">
+                        <i class="fa-solid fa-book-open text-blue-700 mr-2"></i> Tus Clases Preparadas
+                    </h2>
+
+                    <!-- Clase 1 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">CLASE 1</span>
+                            <span class="text-xs text-gray-500 font-semibold"><i class="fa-regular fa-clock mr-1"></i>15 minutos</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Conoce tu celular por fuera</h3>
+                        <p class="text-gray-600 mb-4">Aprenderemos para qué sirven los botones de los lados, cómo encender, apagar y ajustar el volumen de tu teléfono sin desesperarte.</p>
+                        <button onclick="alertMockVideo('Clase 1: Conoce tu celular por fuera')" class="btn-primary text-white px-5 py-3 rounded-xl font-bold text-sm flex items-center">
+                            <i class="fa-solid fa-circle-play mr-2 text-lg"></i>Ver Video de la Clase
+                        </button>
+                    </div>
+
+                    <!-- Clase 2 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">CLASE 2</span>
+                            <span class="text-xs text-gray-500 font-semibold"><i class="fa-regular fa-clock mr-1"></i>20 minutos</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">La Pantalla Táctil sin Miedos</h3>
+                        <p class="text-gray-600 mb-4">¿El celular hace cosas raras cuando tocas la pantalla? Te enseñamos el toque suave, el deslizamiento y cómo evitar dar "clics" donde no quieres.</p>
+                        <button onclick="alertMockVideo('Clase 2: La Pantalla Táctil sin Miedos')" class="btn-primary text-white px-5 py-3 rounded-xl font-bold text-sm flex items-center">
+                            <i class="fa-solid fa-circle-play mr-2 text-lg"></i>Ver Video de la Clase
+                        </button>
+                    </div>
+
+                    <!-- Clase 3 -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition-all">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-bold rounded-full">CLASE 3</span>
+                            <span class="text-xs text-gray-500 font-semibold"><i class="fa-regular fa-clock mr-1"></i>18 minutos</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Ajustes Mágicos: Letras Grandes y Linterna</h3>
+                        <p class="text-gray-600 mb-4">Ajustaremos juntos el tamaño del texto para que no tengas que usar lupa, y te enseñaremos cómo activar la linterna con un solo botón.</p>
+                        <button onclick="alertMockVideo('Clase 3: Ajustes Mágicos')" class="btn-primary text-white px-5 py-3 rounded-xl font-bold text-sm flex items-center">
+                            <i class="fa-solid fa-circle-play mr-2 text-lg"></i>Ver Video de la Clase
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Columna Profesor y Consejos -->
+                <div class="space-y-6">
+                    <!-- Tu Tutor -->
+                    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm text-center">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full mx-auto flex items-center justify-center mb-4 text-3xl">👨‍🏫</div>
+                        <h3 class="text-lg font-bold text-gray-900">Tu profesor: Prof. Mateo</h3>
+                        <p class="text-sm text-gray-500 mb-4">Especialista en enseñanza digital pacífica</p>
+                        <hr class="my-4 border-gray-100">
+                        <p class="text-sm text-gray-600 italic">"Mi meta es que uses tu teléfono con una sonrisa en el rostro."</p>
+                    </div>
+
+                    <!-- Tarjeta de Mensaje flotante / Tips -->
+                    <div class="bg-emerald-50 p-6 rounded-2xl border-2 border-emerald-100">
+                        <h4 class="font-bold text-emerald-800 text-base mb-3 flex items-center">
+                            <i class="fa-solid fa-lightbulb mr-2"></i> Consejo del día
+                        </h4>
+                        <p class="text-sm text-emerald-950 leading-relaxed">
+                            No te satures. Mira un video por día y practica con tu propio teléfono al lado. La práctica constante hace al maestro.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mensaje personalizado que reemplaza al alert() -->
+    <div id="customAlertModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center shadow-2xl border-2 border-blue-100">
+            <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl text-blue-700">
+                📺
+            </div>
+            <h3 id="customAlertTitle" class="text-2xl font-bold text-gray-900 mb-2">Preparando clase...</h3>
+            <p id="customAlertBody" class="text-gray-600 mb-6 text-base">Iniciando el reproductor de video de forma sencilla para ti.</p>
+            <button onclick="closeCustomAlert()" class="btn-primary text-white px-8 py-3 rounded-xl font-bold text-base w-full shadow-md">
+                ¡Entendido!
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 text-white py-12 mt-12 border-t-4 border-blue-700">
         <div class="max-w-6xl mx-auto px-6 text-center">
-            <p class="mb-4 font-bold">Seminario: Pierde el miedo a Android</p>
-            <p class="mb-4 font-bold">Tecnologia en Programacion en Sistemas Informaticos</p>
-            <p class="mb-4 font-bold">UPTC - Electiva LandingPage - Ing. Ariel Rodriguez</p>
-            <p class="text-gray-500 text-sm">© 2026 ConectaMayor. Nicolas Tadeo Ibarra Chala. Todos los derechos reservados.</p>
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <i class="fa-solid fa-mobile-screen-button text-2xl text-blue-500"></i>
+                <span class="font-bold text-lg">ConectaMayor</span>
+            </div>
+            <p class="mb-2 font-bold text-sm">Seminario: Pierde el miedo a tu Android de una vez por todas</p>
+            <p class="text-gray-500 text-xs">© 2026 ConectaMayor. Diseñado pensando con paciencia para nuestros mayores de manera adaptable.</p>
         </div>
     </footer>
 
@@ -170,9 +379,9 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Configuración proporcionada
+        // Configuración de Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyDVN2o9TQzQS0G8v7jWUWvXn0-hYsdbawo",
             authDomain: "myweb-act3.firebaseapp.com",
@@ -191,12 +400,12 @@
 
         let currentUser = null;
 
-        // Autenticación anónima para cumplir con las reglas de acceso
+        // Autenticación anónima para cumplir con las reglas de acceso (Auth antes de queries)
         async function initAuth() {
             try {
                 await signInAnonymously(auth);
             } catch (error) {
-                console.error("Error en auth:", error);
+                console.error("Error en autenticación:", error);
             }
         }
 
@@ -206,59 +415,172 @@
 
         initAuth();
 
-        // Manejo del formulario
-        const form = document.getElementById('registrationForm');
+        // ELEMENTOS DEL DOM
+        const regForm = document.getElementById('registrationForm');
         const submitBtn = document.getElementById('submitBtn');
         const statusMessage = document.getElementById('statusMessage');
 
-        form.addEventListener('submit', async (e) => {
+        const loginForm = document.getElementById('loginForm');
+        const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+        const loginStatusMessage = document.getElementById('loginStatusMessage');
+
+        // REGISTRO DE USUARIO NUEVO
+        regForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
             if (!currentUser) {
-                showMessage("Espera un momento, estamos preparando la conexión...", "error");
+                showRegistrationMessage("Preparando la señal, por favor espera 5 segundos y vuelve a presionar el botón.", "error");
                 return;
             }
 
-            // Bloquear botón
             submitBtn.disabled = true;
-            submitBtn.innerHTML = "Procesando...";
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin mr-2"></i> Registrando...';
 
+            const emailInput = document.getElementById('email').value.trim().toLowerCase();
             const formData = {
-                nombre: document.getElementById('nombre').value,
-                email: document.getElementById('email').value,
-                telefono: document.getElementById('telefono').value,
-                labor: document.getElementById('labor').value,
+                nombre: document.getElementById('nombre').value.trim(),
+                email: emailInput,
+                telefono: document.getElementById('telefono').value.trim(),
+                labor: document.getElementById('labor').value.trim(),
                 timestamp: serverTimestamp()
             };
 
             try {
                 // RULE 1: Ruta estricta de Firestore pública
-                // /artifacts/{appId}/public/data/{collectionName}
                 const registrationsRef = collection(db, 'artifacts', appId, 'public', 'data', 'registraciones');
-                
                 await addDoc(registrationsRef, formData);
 
-                showMessage("¡Felicidades! Te has registrado con éxito. Nos vemos en el seminario.", "success");
-                form.reset();
+                showRegistrationMessage("¡Maravilloso! Te has inscrito de forma exitosa. Vamos a entrar al curso...", "success");
+                
+                // Redirigir automáticamente al aula virtual tras registrarse
+                setTimeout(() => {
+                    startClassroomSession(formData.nombre);
+                }, 2000);
+
+                regForm.reset();
             } catch (error) {
                 console.error("Error al guardar:", error);
-                showMessage("Hubo un pequeño error. Por favor, inténtalo de nuevo.", "error");
+                showRegistrationMessage("Ocurrió un problema de conexión. Por favor verifica los datos e intenta de nuevo.", "error");
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>¡Registrarme Gratis!</span> <i class="fa-solid fa-paper-plane"></i>';
+                submitBtn.innerHTML = '<span>¡Sí, quiero registrarme gratis!</span> <i class="fa-solid fa-arrow-right"></i>';
             }
         });
 
-        function showMessage(msg, type) {
-            statusMessage.textContent = msg;
-            statusMessage.className = `p-4 rounded-xl text-center font-medium ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`;
-            statusMessage.classList.remove('hidden');
-            
-            if (type === 'success') {
-                setTimeout(() => {
-                    statusMessage.classList.add('hidden');
-                }, 5000);
+        // INICIO DE SESIÓN (LOGIN)
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!currentUser) {
+                showLoginMessage("Conectando con el servidor, por favor espera...", "error");
+                return;
             }
+
+            loginSubmitBtn.disabled = true;
+            loginSubmitBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin mr-2"></i> Comprobando...';
+
+            const emailInput = document.getElementById('loginEmail').value.trim().toLowerCase();
+
+            try {
+                // RULE 1: Ruta estricta de Firestore pública
+                const registrationsRef = collection(db, 'artifacts', appId, 'public', 'data', 'registraciones');
+                
+                // RULE 2: Sin queries complejos de Firestore. Descargamos y filtramos en memoria.
+                const querySnapshot = await getDocs(registrationsRef);
+                let foundUser = null;
+
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    if (data.email && data.email.toLowerCase() === emailInput) {
+                        foundUser = data;
+                    }
+                });
+
+                if (foundUser) {
+                    showLoginMessage("¡Bienvenido de vuelta! Abriendo el aula virtual...", "success");
+                    setTimeout(() => {
+                        startClassroomSession(foundUser.nombre);
+                        loginForm.reset();
+                    }, 1500);
+                } else {
+                    showLoginMessage("No encontramos este correo. Asegúrate de escribirlo igual que cuando te registraste, o inscríbete primero.", "error");
+                }
+
+            } catch (error) {
+                console.error("Error al ingresar:", error);
+                showLoginMessage("Hubo un inconveniente para acceder. Inténtalo de nuevo.", "error");
+            } finally {
+                loginSubmitBtn.disabled = false;
+                loginSubmitBtn.innerHTML = '<span>Ingresar al curso ahora</span> <i class="fa-solid fa-right-to-bracket"></i>';
+            }
+        });
+
+        // FUNCIONES DE CONTROL DE PANTALLAS
+        window.showScreen = function(screenId) {
+            // Ocultar todas las pantallas principales
+            document.getElementById('screen-landing').classList.add('hidden');
+            document.getElementById('screen-login').classList.add('hidden');
+            document.getElementById('screen-classroom').classList.add('hidden');
+
+            // Mostrar la seleccionada
+            const targetScreen = document.getElementById(screenId);
+            targetScreen.classList.remove('hidden');
+
+            // Ajustar navegación en base a pantalla activa
+            const navLoginBtn = document.getElementById('navLoginBtn');
+            const navRegisterBtn = document.getElementById('navRegisterBtn');
+
+            if (screenId === 'screen-classroom') {
+                navLoginBtn.classList.add('hidden');
+                navRegisterBtn.classList.add('hidden');
+            } else {
+                navLoginBtn.classList.remove('hidden');
+                navRegisterBtn.classList.remove('hidden');
+            }
+
+            // Desplazar al inicio automáticamente al cambiar pantalla
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function startClassroomSession(name) {
+            document.getElementById('userNamePlaceholder').textContent = name;
+            showScreen('screen-classroom');
+        }
+
+        window.logout = function() {
+            showScreen('screen-landing');
+        }
+
+        // Mensajes de Alerta/Estado
+        function showRegistrationMessage(msg, type) {
+            statusMessage.textContent = msg;
+            statusMessage.className = `p-4 rounded-xl text-center font-bold text-lg ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`;
+            statusMessage.classList.remove('hidden');
+        }
+
+        function showLoginMessage(msg, type) {
+            loginStatusMessage.textContent = msg;
+            loginStatusMessage.className = `p-4 rounded-xl text-center font-bold ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`;
+            loginStatusMessage.classList.remove('hidden');
+        }
+    </script>
+
+    <!-- Script General para Interactividad de Aula -->
+    <script>
+        // Alerta personalizada para simular la reproducción de videos
+        function alertMockVideo(title) {
+            const modal = document.getElementById('customAlertModal');
+            const alertTitle = document.getElementById('customAlertTitle');
+            const alertBody = document.getElementById('customAlertBody');
+
+            alertTitle.textContent = "¡Muy buena elección!";
+            alertBody.innerHTML = `Estamos conectándote a: <br><strong class="text-blue-700 text-lg">${title}</strong>.<br><br>Consigue una libreta de notas, un lápiz y pon atención. ¡Lo vas a hacer excelente!`;
+            
+            modal.classList.remove('hidden');
+        }
+
+        function closeCustomAlert() {
+            document.getElementById('customAlertModal').classList.add('hidden');
         }
     </script>
 </body>
