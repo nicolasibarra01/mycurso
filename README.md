@@ -44,4 +44,30 @@ CSS3 / Tailwind CSS: Estilos modernos, diseño responsivo (adaptable a móviles,
 
 JavaScript (opcional): Para pequeñas interacciones como preguntas frecuentes desplegables (FAQs) o validación del formulario de registro.
 
-🚀 Instalación y Vista Local
+👥 Contribuciones
+
+¡Las contribuciones para mejorar la accesibilidad y el diseño de este proyecto son bienvenidas!
+
+Si tienes ideas para mejorar la experiencia de usuario de nuestros adultos mayores:
+
+Haz un Fork del proyecto.
+
+Crea una rama para tu mejora (git checkout -b feature/NuevaMejora).
+
+Sube tus cambios (git commit -m 'Añade una mejora de accesibilidad').
+
+Haz un Push a la rama (git push origin feature/NuevaMejora).
+
+Abre un Pull Request.
+
+📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+
+✉️ Contacto y Soporte
+
+Si tienes alguna duda sobre el curso o el desarrollo del sitio, puedes contactarnos en:
+
+Correo electrónico: nicolas.ibarra01@uptc.edu.co
+
+Sitio Web: https://nicolasibarra01.github.io/mycurso/
