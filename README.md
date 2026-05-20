@@ -1,68 +1,73 @@
-Landing Page: Curso de Android para Adultos Mayores 📱👵👴
+Conectando Generaciones: Landing Page de Curso de Android para Adultos Mayores 📱👵👴
 
-¡Bienvenido/a al repositorio de la Landing Page del Curso de Android para Adultos Mayores! Este es un sitio web diseñado de forma accesible, clara y empática, cuyo objetivo es promocionar e incentivar la inscripción a un curso formativo diseñado especialmente para que las personas mayores pierdan el miedo a la tecnología, aprendan a configurar sus dispositivos y dominen sus teléfonos inteligentes de forma segura.
+¡Bienvenido/a a la portada de este proyecto! Esta Landing Page es una plataforma web optimizada, accesible y empática diseñada para promover un curso práctico sobre el uso y configuración de teléfonos inteligentes Android. El objetivo del curso es empoderar a los adultos mayores, ayudándoles a perder el miedo a la tecnología, mejorar su autonomía digital y comunicarse de manera segura con sus seres queridos.
 
-🎯 Objetivo del Proyecto
+📸 Vista Previa del Proyecto
 
-Crear una experiencia web (landing page) altamente accesible que conecte con los adultos mayores (o sus familiares que buscan regalarles el curso), presentando la propuesta de valor de un taller práctico de Android, los módulos de aprendizaje, testimonios de éxito y un llamado a la acción (CTA) simplificado para la inscripción.
+Puedes ver el proyecto en funcionamiento real visitando nuestro enlace en GitHub Pages.
 
-🎨 Características de Diseño y Accesibilidad
+🚀 Tecnologías Utilizadas
 
-Dado el público objetivo, el diseño de esta landing page prioriza la usabilidad y accesibilidad (WCAG):
+Para garantizar un rendimiento excelente, interactividad fluida y una accesibilidad óptima, este desarrollo se ha construido con:
 
-Contraste Alto: Combinaciones de colores legibles para personas con dificultades visuales leves.
+HTML5 Semántico: Para una estructuración accesible y amigable con lectores de pantalla (Screen Readers).
 
-Tipografía Grande y Clara: Fuentes sans-serif de tamaño generoso para facilitar la lectura.
+CSS3 & Tailwind CSS: Para un diseño limpio, altamente contrastado y completamente adaptado a dispositivos móviles, tablets y ordenadores de escritorio (Responsive Design).
 
-Botones Grandes: Elementos interactivos con un área de clic/toque amplia para facilitar la navegación en dispositivos móviles o para personas con temblor esencial.
+JavaScript (ES6+): Utilizado para manejar la interactividad fluida (despliegue de preguntas frecuentes, validación de formularios y animaciones accesibles).
 
-Lenguaje Sencillo: Explicaciones libres de tecnicismos complejos; tono cercano, paciente y motivador.
+Google AI Studio / Gemini: Usado como copiloto inteligente para la generación de copys empáticos, traducción de términos técnicos complejos a un lenguaje comprensible para adultos mayores y la optimización de los contrastes según estándares WCAG.
 
-Estructura Limpia: Sin animaciones intrusivas ni elementos que puedan causar distracción o confusión.
+📈 Proceso de Desarrollo (Metodología de 5 Fases)
 
-📚 Temario del Curso Promocionado
+Este proyecto se desarrolló siguiendo una metodología rigurosa centrada en el usuario (UCD) dividida en las siguientes fases:
 
-El curso estructurado en la landing page abarca los siguientes módulos esenciales:
+┌─────────────────────────┐     ┌─────────────────────────┐     ┌─────────────────────────┐
+│  Fase 1: Investigación  │ ──> │   Fase 2: Arquitectura  │ ──> │    Fase 3: Desarrollo   │
+│       y Empatía         │     │     y UX Accesible      │     │         Frontend        │
+└─────────────────────────┘     └─────────────────────────┘     └─────────────────────────┘
+                                                                             │
+                                ┌─────────────────────────┐     ┌────────────┴────────────┐
+                                │     Fase 5: Pruebas     │ <── │   Fase 4: IA & Copy     │
+                                │      y Despliegue       │     │       Simplificado      │
+                                └─────────────────────────┘     └─────────────────────────┘
 
-Módulo 1: Primeros pasos con tu Android (Encendido, volumen, gestos básicos de pantalla y botones de navegación).
 
-Módulo 2: Configuración para una vista cómoda (Aumentar el tamaño de la letra, ajustar el brillo y configurar tonos de llamada fuertes).
+1. Fase de Investigación y Empatía
 
-Módulo 3: Comunicación sin barreras (Uso de WhatsApp: llamadas, videollamadas, envío de notas de voz y compartir fotos de manera segura).
+Se realizaron entrevistas rápidas y observación de usuarios reales (adultos mayores) para identificar sus principales frustraciones con la tecnología móvil (miedo a desconfigurar el teléfono, tamaño de letra pequeña, estafas telefónicas y uso de aplicaciones cotidianas como WhatsApp).
 
-Módulo 4: Entretenimiento y Utilidades (Uso de la cámara de fotos, reloj/alarma, calendario y cómo buscar videos en YouTube).
+2. Fase de Arquitectura de la Información y UX Accesible
 
-Módulo 5: Seguridad y Prevención de Estafas (Cómo identificar llamadas sospechosas, no caer en enlaces falsos y proteger la información personal).
+Diseño del flujo de navegación y jerarquía visual. Se definieron criterios estrictos de accesibilidad basados en las pautas WCAG:
 
-🛠️ Tecnologías Utilizadas
+Contraste de color superior a 4.5:1.
 
-Para el desarrollo de esta landing page se emplearon las siguientes herramientas:
+Tamaño de fuente mínimo de 18px para textos generales.
 
-HTML5: Estructuración semántica y accesible de todo el contenido.
+Botones de acción táctiles con áreas de clic mayores a 48x48 píxeles.
 
-CSS3 / Tailwind CSS: Estilos modernos, diseño responsivo (adaptable a móviles, tablets y computadoras) y variables de fácil personalización.
+3. Fase de Desarrollo Frontend
 
-JavaScript (opcional): Para pequeñas interacciones como preguntas frecuentes desplegables (FAQs) o validación del formulario de registro.
+Se maquetó la estructura HTML5 con etiquetas semánticas (<header>, <main>, <section>, <footer>) y se dio estilo con Tailwind CSS, garantizando que el diseño sea totalmente adaptativo para que un hijo o nieto pueda registrar a su familiar desde su propio celular.
 
-👥 Contribuciones
+4. Fase de Integración de IA y Redacción de Contenidos
 
-¡Las contribuciones para mejorar la accesibilidad y el diseño de este proyecto son bienvenidas!
+Utilizando Google AI Studio y Gemini, se refinó la propuesta de valor y se transformó la terminología técnica compleja en explicaciones claras, amigables y motivadoras. La IA también ayudó a generar perfiles de usuarios ficticios para testear posibles escenarios de uso.
 
-Si tienes ideas para mejorar la experiencia de usuario de nuestros adultos mayores:
+5. Fase de Pruebas y Despliegue
 
-Haz un Fork del proyecto.
+Se validó la landing page con herramientas de accesibilidad lighthouse y se testeó con un pequeño grupo de adultos mayores. Tras ajustar pequeños detalles de legibilidad, el sitio se desplegó de manera continua utilizando GitHub Pages.
 
-Crea una rama para tu mejora (git checkout -b feature/NuevaMejora).
+Créditos y Agradecimientos
 
-Sube tus cambios (git commit -m 'Añade una mejora de accesibilidad').
+Este proyecto fue posible gracias a la colaboración de:
 
-Haz un Push a la rama (git push origin feature/NuevaMejora).
+Desarrollador Principal: NICOLAS TADEO IBARRA CHALA - Ideación, maquetación y programación interactiva.
 
-Abre un Pull Request.
+Mentoría en UX de Accesibilidad: Apoyado por las directrices de accesibilidad de la comunidad de código abierto.
 
-📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+Copiloto de IA: Google AI Studio (Gemini) por las sugerencias de redacción enfocadas en el lenguaje de lectura fácil para personas mayores.
 
 ✉️ Contacto y Soporte
 
