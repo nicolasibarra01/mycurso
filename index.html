@@ -104,8 +104,9 @@
                 <div class="md:w-1/2 flex justify-center">
                     <div class="relative w-full max-w-md">
                         <div class="absolute -top-4 -left-4 w-24 h-24 bg-blue-100 rounded-full -z-10"></div>
-                        <!--<img src="https://images.unsplash.com/photo-1516307361476-e7a050afe1bb?auto=format&fit=crop&q=80&w=800" alt="Persona mayor sonriendo con un teléfono inteligente" class="rounded-3xl shadow-2xl w-full object-cover h-[350px] md:h-[450px]">-->
-                        <img src="1.jpg" alt="Persona mayor sonriendo con un teléfono inteligente" class="rounded-3xl shadow-2xl w-full object-cover h-[350px] md:h-[450px]">
+                        <!-- Imagen con fallback seguro si 1.jpg no se encuentra en el servidor local -->
+                        <img src="1.jpg" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1516307361476-e7a050afe1bb?auto=format&fit=crop&q=80&w=800';" alt="Persona mayor sonriendo con un teléfono inteligente" class="rounded-3xl shadow-2xl w-full object-cover h-[350px] md:h-[450px]">
+                        
                         <div class="absolute -bottom-6 -right-6 bg-white p-5 rounded-2xl shadow-xl border border-blue-50 hidden sm:block">
                             <div class="flex items-center space-x-3">
                                 <div class="bg-emerald-100 p-3 rounded-xl">
@@ -150,6 +151,90 @@
                         </div>
                         <h3 class="text-xl font-bold mb-3 text-gray-900">Seguridad Total</h3>
                         <p class="text-gray-600">Conoce los secretos para evitar estafas y navegar por internet con absoluta tranquilidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE TESTIMONIOS (NUEVA SECCIÓN) -->
+        <section class="py-16 bg-white border-b border-gray-100">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="inline-block px-4 py-1.5 bg-blue-100 text-blue-800 rounded-full text-xs sm:text-sm font-bold mb-4">
+                        <i class="fa-solid fa-comments mr-1.5"></i>HISTORIAS DE ÉXITO
+                    </span>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-4">Lo que dicen nuestros estudiantes</h2>
+                    <p class="text-gray-600 text-lg">Ellos también empezaron desde cero y hoy usan su celular con total libertad y alegría.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Testimonio 1 -->
+                    <div class="bg-blue-50/50 p-8 rounded-3xl border border-blue-100 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+                        <div>
+                            <div class="flex text-amber-400 mb-4 text-lg">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 text-base md:text-lg italic mb-6 leading-relaxed">
+                                "Antes me daba pánico tocar la pantalla porque pensaba que iba a desconfigurar todo. Con el Prof. Mateo aprendí a mi ritmo y ahora le hago videollamadas a mis nietos todas las semanas."
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-2xl border-2 border-white shadow-sm">👵</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Emelina Alvarez Ramos</h4>
+                                <p class="text-xs text-gray-500">72 años • Jubilada</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 2 -->
+                    <div class="bg-blue-50/50 p-8 rounded-3xl border border-blue-100 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+                        <div>
+                            <div class="flex text-amber-400 mb-4 text-lg">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 text-base md:text-lg italic mb-6 leading-relaxed">
+                                "Agrandar la letra de los mensajes fue una bendición. Ya no tengo que buscar las gafas cada vez que me llega un mensaje de WhatsApp. Un curso muy recomendado y explicado con calma."
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-2xl border-2 border-white shadow-sm">👴</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Don Alvaro Orozco</h4>
+                                <p class="text-xs text-gray-500">68 años • Pensionado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonio 3 -->
+                    <div class="bg-blue-50/50 p-8 rounded-3xl border border-blue-100 flex flex-col justify-between shadow-sm hover:shadow-md transition-all">
+                        <div>
+                            <div class="flex text-amber-400 mb-4 text-lg">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-gray-700 text-base md:text-lg italic mb-6 leading-relaxed">
+                                "Le tenía terror a las estafas virtuales. En el seminario aprendí los trucos básicos para identificar mensajes sospechosos y navegar segura. ¡Ahora me siento muy tranquila!"
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-2xl border-2 border-white shadow-sm">👵</div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Claudia Acevedo</h4>
+                                <p class="text-xs text-gray-500">75 años • Ama de casa</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -372,9 +457,9 @@
                 <span class="font-bold text-lg">ConectaMayor</span>
             </div>
             <p class="mb-2 font-bold text-sm">Seminario: Pierde el miedo a tu Android de una vez por todas</p>
-            <p class="mb-4 font-bold">Tecnologia en Programacion en Sistemas Informaticos</p>
-            <p class="mb-4 font-bold">UPTC - Electiva LandingPage - Ing. Ariel Rodriguez</p>
-            <p class="mb-4 font-bold">UPTC - Electiva LandingPage - Est. Nicolas T. Ibarra Ch.</p>
+            <p class="mb-4 font-bold">Tecnología en Programación de Sistemas Informáticos</p>
+            <p class="mb-4 font-bold text-blue-400">UPTC - Electiva LandingPage - Ing. Ariel Rodríguez</p>
+            <p class="mb-4 font-bold text-gray-300">UPTC - Electiva LandingPage - Est. Nicolás T. Ibarra Ch.</p>
             <p class="text-gray-500 text-xs">© 2026 ConectaMayor. Diseñado pensando con paciencia para nuestros mayores de manera adaptable.</p>
         </div>
     </footer>
@@ -433,7 +518,7 @@
             e.preventDefault();
 
             if (!currentUser) {
-                showRegistrationMessage("Preparando la señal, por favor espera 5 segundos y vuelve a presionar el botón.", "error");
+                showRegistrationMessage("Preparando la señal, por favor espera unos segundos y vuelve a presionar el botón.", "error");
                 return;
             }
 
@@ -459,9 +544,9 @@
                 // Redirigir automáticamente al aula virtual tras registrarse
                 setTimeout(() => {
                     startClassroomSession(formData.nombre);
+                    regForm.reset();
                 }, 2000);
 
-                regForm.reset();
             } catch (error) {
                 console.error("Error al guardar:", error);
                 showRegistrationMessage("Ocurrió un problema de conexión. Por favor verifica los datos e intenta de nuevo.", "error");
@@ -519,7 +604,7 @@
             }
         });
 
-        // FUNCIONES DE CONTROL DE PANTALLAS
+        // FUNCIONES DE CONTROL DE PANTALLAS (Asignadas al objeto global `window` para que funcionen con inline events)
         window.showScreen = function(screenId) {
             // Ocultar todas las pantallas principales
             document.getElementById('screen-landing').classList.add('hidden');
@@ -541,50 +626,52 @@
                 navLoginBtn.classList.remove('hidden');
                 navRegisterBtn.classList.remove('hidden');
             }
+        };
 
-            // Desplazar al inicio automáticamente al cambiar pantalla
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function startClassroomSession(name) {
-            document.getElementById('userNamePlaceholder').textContent = name;
+        // Iniciar Sesión en el Aula Virtual
+        window.startClassroomSession = function(nombre) {
+            document.getElementById('userNamePlaceholder').innerText = nombre;
             showScreen('screen-classroom');
-        }
+        };
 
+        // Cerrar sesión
         window.logout = function() {
             showScreen('screen-landing');
-        }
+            statusMessage.classList.add('hidden');
+            loginStatusMessage.classList.add('hidden');
+        };
 
-        // Mensajes de Alerta/Estado
-        function showRegistrationMessage(msg, type) {
-            statusMessage.textContent = msg;
-            statusMessage.className = `p-4 rounded-xl text-center font-bold text-lg ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`;
-            statusMessage.classList.remove('hidden');
-        }
+        // Alerta personalizada para videos de clase sin usar alert() convencional
+        window.alertMockVideo = function(tituloClase) {
+            document.getElementById('customAlertTitle').innerText = tituloClase;
+            document.getElementById('customAlertBody').innerText = "Estamos preparando de forma segura y sencilla el reproductor para ti. ¡Ponte cómodo!";
+            document.getElementById('customAlertModal').classList.remove('hidden');
+        };
 
-        function showLoginMessage(msg, type) {
-            loginStatusMessage.textContent = msg;
-            loginStatusMessage.className = `p-4 rounded-xl text-center font-bold ${type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`;
-            loginStatusMessage.classList.remove('hidden');
-        }
-    </script>
-
-    <!-- Script General para Interactividad de Aula -->
-    <script>
-        // Alerta personalizada para simular la reproducción de videos
-        function alertMockVideo(title) {
-            const modal = document.getElementById('customAlertModal');
-            const alertTitle = document.getElementById('customAlertTitle');
-            const alertBody = document.getElementById('customAlertBody');
-
-            alertTitle.textContent = "¡Muy buena elección!";
-            alertBody.innerHTML = `Estamos conectándote a: <br><strong class="text-blue-700 text-lg">${title}</strong>.<br><br>Consigue una libreta de notas, un lápiz y pon atención. ¡Lo vas a hacer excelente!`;
-            
-            modal.classList.remove('hidden');
-        }
-
-        function closeCustomAlert() {
+        // Cerrar Alerta personalizada
+        window.closeCustomAlert = function() {
             document.getElementById('customAlertModal').classList.add('hidden');
+        };
+
+        // Funciones auxiliares para mostrar mensajes en UI
+        function showRegistrationMessage(message, type) {
+            statusMessage.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-emerald-100', 'text-emerald-800');
+            if (type === 'success') {
+                statusMessage.classList.add('bg-emerald-100', 'text-emerald-800');
+            } else {
+                statusMessage.classList.add('bg-red-100', 'text-red-800');
+            }
+            statusMessage.innerText = message;
+        }
+
+        function showLoginMessage(message, type) {
+            loginStatusMessage.classList.remove('hidden', 'bg-red-100', 'text-red-800', 'bg-emerald-100', 'text-emerald-800');
+            if (type === 'success') {
+                loginStatusMessage.classList.add('bg-emerald-100', 'text-emerald-800');
+            } else {
+                loginStatusMessage.classList.add('bg-red-100', 'text-red-800');
+            }
+            loginStatusMessage.innerText = message;
         }
     </script>
 </body>
